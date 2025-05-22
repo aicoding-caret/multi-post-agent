@@ -1,0 +1,55 @@
+{
+  "project_overview": {
+    "name": "ai-content-transformation-and-blogger-posting-agent (educational)",
+    "description": "An educational web application that uses FastAPI and LangGraph to transform user-input text and post it to Blogger.",
+    "repository_url": "https://github.com/aicoding-caret/multi-post-agent"
+  },
+  "architecture": {
+    "summary": "Consists of a FastAPI backend, a simple HTML/JS frontend, and a LangGraph-based AI workflow.",
+    "key_components": [
+      {
+        "name": "fastapi-application (`app/`)",
+        "description": "Includes API endpoints, service logic, data models, etc."
+      },
+      {
+        "name": "langgraph-module (`app/graph/`)",
+        "description": "Configures the AI workflow, including state, nodes, and graph builder."
+      },
+      {
+        "name": "static-files (`static/`)",
+        "description": "Manages CSS, JavaScript, image files, etc."
+      },
+      {
+        "name": "templates (`templates/`)",
+        "description": "Manages HTML template files."
+      }
+    ],
+    "diagram_reference": "Reference Mermaid diagrams (user-scenario-flow, system-architecture) in `docs/requirement.md`."
+  },
+  "development_process": {
+    "documentation_first_approach": "All development work should, in principle, start with creating or updating relevant documents under `docs/`. (See `docs/documentation-guide.md`)",
+    "task_based_development": "Development proceeds based on `docs/tasks/task-list.md` and individual task documents in the `docs/tasks/` folder. The AI will follow the checklist in each task document and record progress therein.",
+    "api_key_management": "All API keys and sensitive information are managed via the `.env` file, which is added to `.gitignore` to prevent inclusion in the repository.",
+    "langgraph_implementation_guideline": "Implement LangGraph in a modular fashion within the `app/graph/` directory, clearly separating state (`state.py`), nodes (`nodes.py`), and builder (`builder.py`).",
+    "fastapi_implementation_guideline": "Implement FastAPI within the `app/` directory, separating roles into routers (`routers/`), services(`services/`), models (`models/`), etc.",
+    "frontend_guideline": "Use simple HTML, CSS, and Vanilla JS for educational purposes, avoiding complex frontend frameworks. (See `docs/page-design.md`)",
+    "logging_guideline": "Use the Python `logging` module to record major execution flows, errors, and external API call information.",
+    "error_handling_guideline": "Appropriately handle exceptions at each layer (router, service, LangGraph node), provide clear feedback to the user, and log errors.",
+    "git_rules": {
+      "commit_format": "type: description (e.g., `feat: Add new feature`, `fix: Fix bug`, `docs: Update documentation`, `style: Code style changes`, `refactor: Code refactoring`, `test: Add test code`, `chore: Build and other changes`)"
+    },
+    "rules_file_management_protocol": "This `docs/caretrules.ko.md` file is the master Korean original for all rules, and the `.caretrules` JSON file is synchronized by the AI (Alpha) based on this file. (See Section 1 of `docs/caretrules.ko.md`)",
+    "no_example_phrases_in_docs": "Task documents should not use phrases like 'e.g.', 'example:', etc. and should specify concrete content instead.",
+    "caretrules_file_must_be_written_in_english": "The .caretrules file must be written in English."
+  },
+  "key_files_reference": [
+    ".caretrules",
+    "docs/requirement.md",
+    "docs/development-guide.md",
+    "docs/page-design.md",
+    "docs/documentation-guide.md",
+    "docs/tasks/task-list.md",
+    "app/main.py",
+    "app/graph/builder.py"
+  ]
+}
