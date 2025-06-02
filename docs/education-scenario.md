@@ -42,7 +42,7 @@
         ```
     * 클론된 프로젝트 폴더를 VS Code에서 열기
 3. **Caret AI 어시스턴트 (VSIX) 설치**
-    * 프로젝트 내 `resources\caret\caret-dev-3.10.1-20250428-135258.vsix` 파일 설치
+    * 프로젝트 내 `resources\caret\caret-dev-3.10.1-20250516-094208.vsix` 파일 설치
     * VS Code 확장 탭에서 "Install from VSIX..." 메뉴를 통해 설치
     * Caret 초기 설정 (API Key 등 - 필요시 안내)
 4. **Python 및 LangGraph 환경 준비 (선택 사항, 고급 실습 시)**
@@ -235,7 +235,7 @@
 
 * 본 GitHub 저장소: [`https://github.com/aicoding-caret/multi-post-agent`](https://github.com/aicoding-caret/multi-post-agent)
     * 교육용 발표 자료: [`https://github.com/aicoding-caret/multi-post-agent/blob/main/resources/AI-Agent-%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9-%EA%B7%B8%EB%A6%AC%EA%B3%A0-Caret%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4-20250522.pdf`](./resources/AI-Agent-바이브코딩-그리고-Caret에-대한-이해-20250522.pdf)
-    * Caret VSIX 파일: [`https://github.com/aicoding-caret/multi-post-agent/blob/main/resources/caret/caret-dev-3.10.1-20250428-135258.vsix`](./resources/caret/caret-dev-3.10.1-20250428-135258.vsix)
+    * Caret VSIX 파일: [`https://github.com/aicoding-caret/multi-post-agent/blob/main/resources/caret/caret-dev-3.10.1-20250516-094208.vsix`](./resources/caret/caret-dev-3.10.1-20250428-135258.vsix)
     * 관련 문서 (본 `docs/` 폴더 내 위치):
         * [요구사항 명세서](./requirement.md)
         * [개발 가이드](./development-guide.md)
