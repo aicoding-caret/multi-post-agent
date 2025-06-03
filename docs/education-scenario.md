@@ -304,21 +304,21 @@
     * Caret에게 "오늘 만들 미니 프로젝트의 개발 계획을 `work-logs/` 폴더에 `YYYYMMDD-01-plan.md` 파일로 작성해줘." 라고 요청
     * Caret이 제시한 계획 검토 및 함께 수정
 2. **실행 단계 (Checklist & Coding)**
-        * Caret에게 "계획에 따라 필요한 파일 구조를 만들고, FastAPI 기본 코드를 작성해줘. 그리고 `YYYYMMDD-01-checklist.md` 파일에 진행 상황을 기록해줘." 와 같이 단계별 요청
-        * HTML 입력폼 (초안 작성, **처리 옵션 선택: 자동 개시/검토 후 개시** - `docs/page-design.md` 참조), FastAPI 엔드포인트 정의, **LangGraph 상태(State) 및 노드(Node) 정의 (콘텐츠 변환, Blogger 포스팅, 사용자 검토 로직 포함 - `docs/requirement.md`의 사용자 시나리오 참조), 그래프(Graph) 구성 및 간단한 테스트 코드 작성** 등을 Caret과 함께 조금씩 만들어나감
-        * **단계별 테스트 및 검증 생활화:** 코드 변경 또는 기능 추가 시마다 Uvicorn 서버 로그, 브라우저 개발자 도구(콘솔, 네트워크 탭), 실제 UI 동작을 통해 기능이 올바르게 작동하는지, 오류는 없는지, 데이터는 예상대로 처리되는지 꼼꼼히 확인하고 Caret에게 피드백합니다.
-        * Caret이 생성한 코드 리뷰 및 간단한 디버깅 참여
-        * **LangGraph 변환 로직 수정 가이드 (프롬프트, 모델, 스타일 변경 시):**
-            * **핵심 요구사항 정의**: 먼저 어떤 스타일로 변환하고 싶은지, 사용할 LLM 모델은 무엇인지 등 핵심 요구사항을 명확히 합니다. 이는 `docs/requirement.md` 문서의 "주요 기능 - 콘텐츠 스타일 변환" 섹션에 반영될 수 있습니다.
-            * **개발 가이드 참조**: `docs/development-guide.md`의 "AI 워크플로우 설계 (LangGraph)" 섹션에서 `app/graph/nodes.py`의 `transform_content_node` (초기 변환) 및 `revise_content_node` (사용자 의견 기반 재변환) 함수가 어떤 역할을 하는지 이해합니다.
-            * **LLM API 키 설정**: 사용할 LLM (예: Gemini)의 API 키를 `.env` 파일에 `GEMINI_API_KEY`로 올바르게 설정하고, `app/core/config.py`의 `Settings` 클래스에도 해당 키 변수가 정의되어 있는지 확인합니다.
-            * **LLM 클라이언트 및 모델 변경**: `app/graph/nodes.py`의 `get_llm_client()` 함수에서 사용할 LLM 라이브러리(예: `ChatGoogleGenerativeAI`)와 모델명(예: `gemini-2.5-flash-preview-05-20`)을 수정합니다.
-            * **프롬프트 수정**: `app/graph/nodes.py`의 `transform_content_node` 함수 내 `prompt_template_str` 변수의 내용을 원하는 변환 스타일과 결과 형식을 명확히 지시하도록 수정합니다. 사용자 의견을 반영하는 `revise_content_node`의 프롬프트도 필요시 함께 수정합니다.
-            * **관련 태스크 문서 업데이트**: 만약 `docs/tasks/005-langgraph-basic-and-transform.md`와 같이 LLM 설정이나 프롬프트 정의와 직접적으로 관련된 태스크 문서가 있다면, 해당 문서의 내용도 실제 변경 사항에 맞게 업데이트합니다.
-            * **테스트 및 검증**: 변경 사항 적용 후, 웹 애플리케이션을 실행하여 실제 입력값에 대해 의도한 대로 콘텐츠 변환이 이루어지는지, 그리고 터미널 로그를 통해 LLM 호출 및 응답이 정상적인지 확인합니다.
-    3. **보고 단계 (Report)**
-        * Caret에게 "오늘 진행한 작업 내용을 `YYYYMMDD-01-report.md` 파일로 요약해줘." 요청
-    4. **피드백 및 반복 (Loop - 시간 부족 시 생략 또는 간략히)**
+    * Caret에게 "계획에 따라 필요한 파일 구조를 만들고, FastAPI 기본 코드를 작성해줘. 그리고 `YYYYMMDD-01-checklist.md` 파일에 진행 상황을 기록해줘." 와 같이 단계별 요청
+    * HTML 입력폼 (초안 작성, **처리 옵션 선택: 자동 개시/검토 후 개시** - `docs/page-design.md` 참조), FastAPI 엔드포인트 정의, **LangGraph 상태(State) 및 노드(Node) 정의 (콘텐츠 변환, Blogger 포스팅, 사용자 검토 로직 포함 - `docs/requirement.md`의 사용자 시나리오 참조), 그래프(Graph) 구성 및 간단한 테성** 등을 Caret과 함께 조금씩 만들어나감
+    * **단계별 테스트 및 검증 생활화:** 코드 변경 또는 기능 추가 시마다 Uvicorn 서버 로그, 브라우저 개발자 도구(콘솔, 네트워크 탭), 실제 UI 동작을 통해 기능이 올바르게 작동하는지, 오류는 없는지, 데이터는 예상대로 처리되는지 꼼꼼히 확인하고 Caret에게 피드백합니다.
+    * Caret이 생성한 코드 리뷰 및 간단한 디버깅 참여
+    * **LangGraph 변환 로직 수정 가이드 (프롬프트, 모델, 스타일 변경 시):**
+        * **핵심 요구사항 정의**: 먼저 어떤 스타일로 변환하고 싶은지, 사용할 LLM 모델은 무엇인지 등 핵심 요구사항을 명확히 합니다. 이는 `docs/requirement.md` 문서의 "주요 기능 - 콘텐츠 스타일 변환" 섹션에 반영될 수 있습니다.
+        * **개발 가이드 참조**: `docs/development-guide.md`의 "AI 워크플로우 설계 (LangGraph)" 섹션에서 `app/graph/nodes.py`의 `transform_content_node` (초기 변환) 및 `revise_content_node` (사용자 의견 기반 재변환) 함수가 어떤 역할을 하는지 이해합니다.
+        * **LLM API 키 설정**: 사용할 LLM (예: Gemini)의 API 키를 `.env` 파일에 `GEMINI_API_KEY`로 올바르게 설정하고, `app/core/config.py`의 `Settings` 클래스에도 해당 키 변수가 정의되어 있는지 확인합니다.
+        * **LLM 클라이언트 및 모델 변경**: `app/graph/nodes.py`의 `get_llm_client()` 함수에서 사용할 LLM 라이브러리(예: `ChatGoogleGenerativeAI`)와 모델명(예: `gemini-2.5-flash-preview-05-20`)을 수정합니다.
+        * **프롬프트 수정**: `app/graph/nodes.py`의 `transform_content_node` 함수 내 `prompt_template_str` 변수의 내용을 원하는 변환 스타일과 결과 형식을 명확히 지시하도록 수정합니다. 사용자 의견을 반영하는 `revise_content_node`의 프롬프트도 필요시 함께 수정합니다.
+        * **관련 태스크 문서 업데이트**: 만약 `docs/tasks/005-langgraph-basic-and-transform.md`와 같이 LLM 설정이나 프롬프트 정의와 직접적으로 관련된 태스크 문서가 있다면, 해당 문서의 내용도 실제 변경 사항에 맞게 업데이트합니다.
+        * **테스트 및 검증**: 변경 사항 적용 후, 웹 애플리케이션을 실행하여 실제 입력값에 대해 의도한 대로 콘텐츠 변환이 이루어지는지, 그리고 터미널 로그를 통해 LLM 호출 및 응답이 정상적인지 확인합니다.
+3. **보고 단계 (Report)**
+    * Caret에게 "오늘 진행한 작업 내용을 `YYYYMMDD-01-report.md` 파일로 요약해줘." 요청
+4. **피드백 및 반복 (Loop - 시간 부족 시 생략 또는 간략히)**
         * 만들어진 결과물을 보고 추가/수정하고 싶은 부분을 Caret에게 전달하여 계획(`plan.md`)부터 다시 반복하는 짧은 사이클 경험
 
 5. 마무리 및 Q&A 
